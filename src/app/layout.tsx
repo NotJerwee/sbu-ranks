@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
 	title: "SBU Ranks",
-	description: "Vote daily for the best spots on campus.",
+	description: "Vote daily for your favorite experiences on campus.",
 };
 
 export default function RootLayout({

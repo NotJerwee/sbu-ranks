@@ -1,9 +1,13 @@
 "use client";
 
+import { Info } from "lucide-react";
+
 export default function AboutPage() {
 	return (
-		<main className="max-w-3xl mx-auto px-6 py-12">
-			<h1 className="text-5xl font-bold mb-10 text-center text-red-700">About SBU Ranks</h1>
+		<main className="max-w-4xl mx-auto px-6 py-12">
+			<h1 className="text-3xl font-bold mb-10 flex justify-center text-center text-red-700 gap-2">
+				<Info size={30} /> About SBU Ranks
+			</h1>
 
 			<div className="bg-white border border-gray-200 rounded-lg shadow p-6 mb-6">
 				<h2 className="text-2xl font-semibold mb-3 text-gray-800">What is SBU Ranks?</h2>

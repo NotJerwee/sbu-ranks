@@ -23,7 +23,7 @@ export default function SignInPage() {
 	};
 
 	return (
-		<div className="max-w-md mx-auto mt-20 border rounded-xl shadow px-8 py-10 bg-white">
+		<div className="max-w-md mx-auto mt-20 rounded-xl px-8 py-10 bg-white">
 			<h1 className="text-2xl font-bold text-center mb-2">Welcome to SBU Ranks</h1>
 			<p className="text-center text-gray-500 text-sm mb-6">
 				{mode === "signin" ? "Sign in to vote." : "Sign up to start voting."}

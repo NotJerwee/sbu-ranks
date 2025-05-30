@@ -8,12 +8,11 @@ export default function Home() {
 			<FloatingExamples />
 
 			<div className="relative z-10">
-				<div className="flex items-center justify-center gap-3 text-4xl font-bold mb-4">
-					<Landmark size={36} />
-					<h1>Welcome to SBU Ranks</h1>
-				</div>
+				<h1 className="text-3xl flex items-center justify-center gap-3 font-bold mb-4">
+					<Landmark size={30} /> Welcome to SBU Ranks
+				</h1>
 
-				<p className="text-lg text-gray-600 max-w-xl mb-6">
+				<p className="text-m text-gray-600 max-w-xl mb-6">
 					Vote once per day in categories like best food, study spot, and more. See what students love about Stony Brook University!
 				</p>
 

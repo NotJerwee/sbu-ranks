@@ -11,8 +11,8 @@ export default function StatsPage() {
 	return (
 		<main className="max-w-4xl mx-auto py-12 px-4">
 			<div className="text-center mb-10">
-				<h1 className="text-5xl font-bold text-red-700 flex justify-center items-center gap-2">
-					<BarChart2 size={32} /> Campus Rankings
+				<h1 className="text-3xl font-bold text-red-700 flex justify-center items-center gap-2">
+					<BarChart2 size={30} /> Campus Rankings
 				</h1>
 				<h2 className="text-lg text-gray-500 mt-2 flex justify-center items-center gap-2">
 					<UtensilsCrossed size={20} />

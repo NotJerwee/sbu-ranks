@@ -45,8 +45,8 @@ export default function VotePage() {
 	return (
 		<main className="max-w-4xl mx-auto py-12 px-4">
 			<div className="text-center mb-10">
-				<h1 className="text-5xl font-bold text-red-700 flex justify-center items-center gap-2">
-					<Vote size={32} /> Which Place Is Better?
+				<h1 className="text-3xl font-bold text-red-700 flex justify-center items-center gap-2">
+					<Vote size={30} /> Which Is Better?
 				</h1>
 				<h2 className="text-lg text-gray-500 mt-2">
 					Vote today and discover how your choice compares to others on campus

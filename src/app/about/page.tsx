@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 export default function AboutPage() {
 	return (
@@ -15,14 +15,14 @@ export default function AboutPage() {
 			<div className="bg-white border border-gray-200 rounded-lg shadow p-6 mb-6">
 				<h2 className="text-2xl font-semibold mb-3 text-gray-800">Our Mission</h2>
 				<p className="text-lg text-gray-700 leading-relaxed">
-					Our goal is to give students a voice in highlighting what they love most about campus — whether it's the best food, top study spaces, or hidden gems.
+					Our goal is to give students a voice in highlighting what they love most about campus &mdash; whether it&rsquo;s the best food, top study spaces, or hidden gems.
 				</p>
 			</div>
 
 			<div className="bg-white border border-gray-200 rounded-lg shadow p-6">
 				<h2 className="text-2xl font-semibold mb-3 text-gray-800">How the ELO Ranking Works</h2>
 				<p className="text-lg text-gray-700 leading-relaxed mb-4">
-					Our system uses the ELO rating system — the same method used in chess.com to rank players. Every place starts with a score of 1200, and rankings adjust with each vote:
+					Our system uses the ELO rating system &mdash; the same method used in chess.com to rank players. Every place starts with a score of 1200, and rankings adjust with each vote:
 				</p>
 				<ul className="list-disc list-inside text-lg text-gray-700 space-y-2 pl-2">
 					<li>The winner gains points, while the loser loses points.</li>
@@ -31,10 +31,9 @@ export default function AboutPage() {
 					<li>Beating a lower-rated place earns fewer points.</li>
 				</ul>
 				<p className="text-lg text-gray-700 leading-relaxed mt-4">
-					This ensures rankings stay fair, competitive, and reflective of what the campus community actually prefers — one vote at a time.
+					This ensures rankings stay fair, competitive, and reflective of what the campus community actually prefers &mdash; one vote at a time.
 				</p>
 			</div>
-
 		</main>
 	);
 }

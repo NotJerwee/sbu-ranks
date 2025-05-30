@@ -17,7 +17,7 @@ export function getRecentElo(history: EloEntry[]) {
 	const daysSorted = Array.from(map.keys()).sort();
 	const filledHistory: EloEntry[] = [];
 
-	let currentDate = new Date(daysSorted[0]);
+	const currentDate = new Date(daysSorted[0]);
 	const lastDate = new Date(daysSorted[daysSorted.length - 1]);
 	let lastElo = map.get(daysSorted[0])!.elo_score;
 

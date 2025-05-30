@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
 	title: "SBU Ranks",
@@ -19,6 +20,7 @@ export default function RootLayout({
 				<Navbar />
 				<main className="flex-grow">{children}</main>
 				<Footer />
+				<Analytics />
 			</body>
 		</html>
 	);

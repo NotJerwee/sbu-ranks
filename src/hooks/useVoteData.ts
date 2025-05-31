@@ -6,7 +6,6 @@ import { Option } from "@/types";
 import { TABLES } from "@/constants/tables";
 import { supabase } from "@/lib/supabase";
 
-
 export const useVoteData = () => {
 	const [options, setOptions] = useState<Option[]>([]);
 	const [voteCounts, setVoteCounts] = useState<Record<string, number>>({});
@@ -71,29 +70,51 @@ export const useVoteData = () => {
 					return;
 				}
 
-				const shuffled = allOptions.sort(() => 0.5 - Math.random());
-				const dailyOptions = shuffled.slice(0, 2);
-				const insertedIds = dailyOptions.map((o) => o.id);
+				// Start with a max rating difference of 100; increase by 50 until a valid pair is found
+				let selectedPair: Option[] = [];
+				let maxDiff = 100;
 
-				const { error: insertError } = await supabase
-					.from(TABLES.MATCHUPS)
-					.insert([{
+				while (true) {
+					const shuffled = [...allOptions].sort(() => 0.5 - Math.random());
+
+					for (let i = 0; i < shuffled.length; i++) {
+						for (let j = i + 1; j < shuffled.length; j++) {
+							const diff = Math.abs(shuffled[i].elo_score - shuffled[j].elo_score);
+							if (diff <= maxDiff) {
+								selectedPair = [shuffled[i], shuffled[j]];
+								break;
+							}
+						}
+						if (selectedPair.length === 2) break;
+					}
+
+					if (selectedPair.length === 2) break;
+					maxDiff += 50;
+				}
+
+				const insertedIds = selectedPair.map((o) => o.id);
+				const { error: insertError } = await supabase.from(TABLES.MATCHUPS).insert([
+					{
 						date: today,
 						options: insertedIds,
 						vote_counts: {
-						[insertedIds[0]]: 0,
-						[insertedIds[1]]: 0,
+							[insertedIds[0]]: 0,
+							[insertedIds[1]]: 0,
 						},
-					}]);
+					},
+				]);
 
 				if (insertError) {
 					console.error("Error inserting new matchup:", insertError);
 					setLoading(false);
 					return;
 				}
-
-				setOptions(dailyOptions);
-				setVoteCounts({ [insertedIds[0]]: 0, [insertedIds[1]]: 0 });
+				
+				setOptions(selectedPair);
+				setVoteCounts({
+					[insertedIds[0]]: 0,
+					[insertedIds[1]]: 0,
+				});				
 			} else {
 				// Match already exists, load its options
 				const { data: optionsData, error: optionsError } = await supabase
